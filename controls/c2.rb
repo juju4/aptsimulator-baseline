@@ -42,8 +42,8 @@ if do_aptsimulator_c2
       its('stdout') { should match %r{curl.exe was allowed to run}i }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-AppLocker/MSI and Script';Id=8002} | Format-Table Message -wrap") do
-      its('stdout') { should match %r{nc.ps1}i) }
-      its('stdout') { should match %r{WMIBackdoor.ps1}i) }
+      its('stdout') { should match %r{nc.ps1}i }
+      its('stdout') { should match %r{WMIBackdoor.ps1}i }
     end
   end
 
@@ -52,9 +52,9 @@ if do_aptsimulator_c2
     title 'Detection with osquery'
     desc 'Verify that activity is identified with osquery'
     describe file('c:\ProgramData\osquery\log\osqueryd.results.log') do
-      its('stdout') { should match %r{curl.exe}i) }
-      its('stdout') { should match %r{nc.ps1}i) }
-      its('stdout') { should match %r{powercat}i) }
+      its('stdout') { should match %r{curl.exe}i }
+      its('stdout') { should match %r{nc.ps1}i }
+      its('stdout') { should match %r{powercat}i }
     end
   end
 
