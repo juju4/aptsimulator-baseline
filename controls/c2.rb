@@ -39,7 +39,7 @@ if do_aptsimulator_c2
     title 'Detection with Applocker'
     desc 'Verify that cli tools activity is logged with Applocker'
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-AppLocker/EXE and DLL';Id=8002} | Format-Table Message -wrap") do
-      its('stdout') { should match %r{curl.exe was allowed to run}i }
+      its('stdout') { should match(/curl.exe was allowed to run/i) }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-AppLocker/MSI and Script';Id=8002} | Format-Table Message -wrap") do
       its('stdout') { should match(/nc.ps1/i) }

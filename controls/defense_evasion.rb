@@ -46,13 +46,13 @@ if do_aptsimulator_evasion
     title 'Detection with Applocker'
     desc 'Verify that cli tools activity is logged with Applocker'
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-AppLocker/EXE and DLL';Id=8002} | Format-Table Message -wrap") do
-      its('stdout') { should match (/net.exe was allowed to run/i) }
+      its('stdout') { should match(/net.exe was allowed to run/i) }
       # fake svchost
-      # its('stdout') { should match (/svchost.exe was allowed to run/i) }
+      # its('stdout') { should match(/svchost.exe was allowed to run/i) }
       # js dropper
-      its('stdout') { should match (/regedit.exe/i) }
-      its('stdout') { should match (/certutil.exe/i) }
-      its('stdout') { should match (/wscript.exe/i) }
+      its('stdout') { should match(/regedit.exe/i) }
+      its('stdout') { should match(/certutil.exe/i) }
+      its('stdout') { should match(/wscript.exe/i) }
     end
   end
 
@@ -61,13 +61,13 @@ if do_aptsimulator_evasion
     title 'Defense Evasion detection with osquery'
     desc 'Verify that activity is identified with osquery'
     describe file('c:\ProgramData\osquery\log\osqueryd.results.log') do
-      its('stdout') { should match (/net.exe/i) }
+      its('stdout') { should match(/net.exe/i) }
       # fake svchost
-      its('stdout') { should match (/svchost.exe/i) }
+      its('stdout') { should match(/svchost.exe/i) }
       # js dropper
-      its('stdout') { should match (/regedit.exe/i) }
-      its('stdout') { should match (/certutil.exe/i) }
-      its('stdout') { should match (/wscript.exe/i) }
+      its('stdout') { should match(/regedit.exe/i) }
+      its('stdout') { should match(/certutil.exe/i) }
+      its('stdout') { should match(/wscript.exe/i) }
     end
   end
 
@@ -78,7 +78,7 @@ if do_aptsimulator_evasion
     describe file('c:\windows\system32\logfiles\firewall\pfirewall-public.log') do
       # raw.githubusercontent.com: github.map.fastly.net has address 151.101.124.133
       # its('content') { should match /151.101.124.133/ }
-      its('content') { should match (/ALLOW ICMP 127.0.0.1 127.0.0.1/) }
+      its('content') { should match(/ALLOW ICMP 127.0.0.1 127.0.0.1/) }
     end
   end
 

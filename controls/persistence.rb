@@ -83,7 +83,7 @@ if do_aptsimulator_persistence
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match sethc.exe") do
       its('stdout') { should_not eq '' }
     end
-    describe powershell("Get-Eventlog -LogName security -include *sethc.exe* | where {$_.eventID -eq 4657}") do
+    describe powershell('Get-Eventlog -LogName security -include *sethc.exe* | where {$_.eventID -eq 4657}') do
       its('stdout') { should_not eq '' }
     end
   end
