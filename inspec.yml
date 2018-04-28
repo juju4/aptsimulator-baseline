@@ -1,0 +1,11 @@
+# encoding: utf-8
+
+name: aptsimulator-baseline
+title: APTsimulator Security Baseline
+maintainer: juju4
+copyright: juju4
+license: BSD-2-Clause
+summary: Baseline for detections of aptsimulator
+version: 0.8
+supports:
+  - os-family: windows
