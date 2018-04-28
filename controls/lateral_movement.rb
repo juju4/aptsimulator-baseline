@@ -3,5 +3,6 @@ do_aptsimulator_lateral = attribute('do_aptsimulator_lateral', default: false, d
 
 if do_aptsimulator_lateral
   title 'APTSimulator lateral-movement'
+  desc 'To be filled...'
 
 end

@@ -8,7 +8,7 @@ if do_aptsimulator_collection
     impact 1.0
     title 'Detection with ProcessCmdLine'
     desc 'Verify that cli tools activity is logged with EnableProcessCmdLine'
-    #describe powershell("Get-Eventlog -LogName security | where {$_.eventID -eq 4688} | Format-Table TimeCreate,Message -wrap") do
+    # describe powershell("Get-Eventlog -LogName security | where {$_.eventID -eq 4688} | Format-Table TimeCreate,Message -wrap") do
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Security';Id=4688} | Format-Table Message -wrap") do
       its('stdout') { should include 'mkdir.exe' }
       its('stdout') { should include 'ping.exe' }
@@ -32,9 +32,9 @@ if do_aptsimulator_collection
     title 'Detection with Applocker'
     desc 'Verify that cli tools activity is logged with Applocker'
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-AppLocker/EXE and DLL';Id=8002} | Format-Table Message -wrap") do
-      its('stdout') { should match /mkdir.exe was allowed to run/i }
-      its('stdout') { should match /ping.exe/i }
-      its('stdout') { should match /7zip.exe/i }
+      its('stdout') { should match (/mkdir.exe was allowed to run/i) }
+      its('stdout') { should match (/ping.exe/i) }
+      its('stdout') { should match (/7zip.exe/i) }
     end
   end
 
@@ -43,9 +43,9 @@ if do_aptsimulator_collection
     title 'Defense Evasion detection with osquery'
     desc 'Verify that activity is identified with osquery'
     describe file('c:\ProgramData\osquery\log\osqueryd.results.log') do
-      its('stdout') { should match /mkdir.exe/i }
-      its('stdout') { should match /ping.exe/i }
-      its('stdout') { should match /7zip.exe/i }
+      its('stdout') { should match (/mkdir.exe/i) }
+      its('stdout') { should match (/ping.exe/i) }
+      its('stdout') { should match (/7zip.exe/i) }
     end
   end
 

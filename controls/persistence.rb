@@ -8,7 +8,7 @@ if do_aptsimulator_persistence
     impact 1.0
     title 'Persistence cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *at.exe* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *at.exe* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match at.exe") do
@@ -26,7 +26,7 @@ if do_aptsimulator_persistence
     impact 1.0
     title 'Persistence registry'
     desc 'Verify that registry change is logged'
-    describe powershell("Get-Eventlog -LogName security -include *p.exe* | where {$_.eventID -eq 4657}") do
+    describe powershell('Get-Eventlog -LogName security -include *p.exe* | where {$_.eventID -eq 4657}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match p.exe") do
@@ -41,7 +41,7 @@ if do_aptsimulator_persistence
     impact 1.0
     title 'Persistence cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *schtasks.exe* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *schtasks.exe* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match schtasks.exe") do
@@ -77,7 +77,7 @@ if do_aptsimulator_persistence
     impact 1.0
     title 'Persistence cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *sethc.exe* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *sethc.exe* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match sethc.exe") do
@@ -92,7 +92,7 @@ if do_aptsimulator_persistence
     impact 1.0
     title 'Persistence cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *sekurlsa::LogonPasswords* | where {$_.eventID -eq 4657}") do
+    describe powershell('Get-Eventlog -LogName security -include *sekurlsa::LogonPasswords* | where {$_.eventID -eq 4657}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1;Image='C:\Windows\System32\reg.exe'} | where-object -Property CommandLine -Match UserInitMprLogonScript") do
@@ -111,7 +111,7 @@ if do_aptsimulator_persistence
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match WMIBackdoor.ps1") do
       its('stdout') { should_not eq '' }
     end
-    describe powershell("Get-WinEvent -ProviderName Microsoft-Windows-Powershell -include *WMIBackdoor.ps1*") do
+    describe powershell('Get-WinEvent -ProviderName Microsoft-Windows-Powershell -include *WMIBackdoor.ps1*') do
       its('stdout') { should_not eq '' }
     end
   end

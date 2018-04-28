@@ -9,7 +9,7 @@ if do_aptsimulator_c2
     impact 1.0
     title 'Detection with ProcessCmdLine'
     desc 'Verify that cli tools activity is logged with EnableProcessCmdLine'
-    #describe powershell("Get-Eventlog -LogName security | where {$_.eventID -eq 4688} | Format-Table TimeCreate,Message -wrap") do
+    # describe powershell("Get-Eventlog -LogName security | where {$_.eventID -eq 4688} | Format-Table TimeCreate,Message -wrap") do
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Security';Id=4688} | Format-Table Message -wrap") do
       # C2 cli tools
       its('stdout') { should include 'curl.exe' }
@@ -42,8 +42,8 @@ if do_aptsimulator_c2
       its('stdout') { should match /curl.exe was allowed to run/i }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-AppLocker/MSI and Script';Id=8002} | Format-Table Message -wrap") do
-      its('stdout') { should match /nc.ps1/i }
-      its('stdout') { should match /WMIBackdoor.ps1/i }
+      its('stdout') { should match (/nc.ps1/i) }
+      its('stdout') { should match (/WMIBackdoor.ps1/i) }
     end
   end
 
@@ -52,9 +52,9 @@ if do_aptsimulator_c2
     title 'Detection with osquery'
     desc 'Verify that activity is identified with osquery'
     describe file('c:\ProgramData\osquery\log\osqueryd.results.log') do
-      its('stdout') { should match /curl.exe/i }
-      its('stdout') { should match /nc.ps1/i }
-      its('stdout') { should match /powercat/i }
+      its('stdout') { should match (/curl.exe/i) }
+      its('stdout') { should match (/nc.ps1/i) }
+      its('stdout') { should match (/powercat/i) }
     end
   end
 
@@ -65,7 +65,7 @@ if do_aptsimulator_c2
     describe file('c:\windows\system32\logfiles\firewall\pfirewall-public.log') do
       # raw.githubusercontent.com: github.map.fastly.net has address 151.101.124.133
       # its('content') { should match /151.101.124.133/ }
-      its('content') { should match /ALLOW 127.0.0.1 127.0.0.1/ }
+      its('content') { should match (/ALLOW 127.0.0.1 127.0.0.1/) }
     end
   end
 

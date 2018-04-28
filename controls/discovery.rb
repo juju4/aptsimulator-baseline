@@ -8,7 +8,7 @@ if do_aptsimulator_discovery
     impact 1.0
     title 'Discovery cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *nbtscan.exe* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *nbtscan.exe* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match nbtscan.exe") do
@@ -24,13 +24,13 @@ if do_aptsimulator_discovery
     impact 1.0
     title 'Discovery recon cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *whoami* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *whoami* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
-    describe powershell("Get-Eventlog -LogName security -include *systeminfo* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *systeminfo* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
-    describe powershell("Get-Eventlog -LogName security -include *wmic* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *wmic* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match whoami.exe") do
@@ -50,7 +50,7 @@ if do_aptsimulator_discovery
     impact 1.0
     title 'Discovery cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *p.exe* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *p.exe* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match p.exe") do
@@ -66,7 +66,7 @@ if do_aptsimulator_discovery
     impact 1.0
     title 'Discovery cli tools'
     desc 'Verify that cli tools activity is logged'
-    describe powershell("Get-Eventlog -LogName security -include *xCmd.exe* | where {$_.eventID -eq 4688}") do
+    describe powershell('Get-Eventlog -LogName security -include *xCmd.exe* | where {$_.eventID -eq 4688}') do
       its('stdout') { should_not eq '' }
     end
     describe powershell("Get-WinEvent -FilterHashTable @{logname='Microsoft-Windows-Sysmon/Operational';id=1} | where-object -Property CommandLine -Match xCmd.exe") do
