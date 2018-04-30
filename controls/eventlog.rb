@@ -8,9 +8,9 @@ control 'logging' do
   describe powershell('Get-EventLog -List') do
     its('stdout') { should include 'Security' }
     its('stdout') { should include 'System' }
-    its('stdout') { should include 'Windows Powershell' }
+    its('stdout') { should include 'Windows PowerShell' }
   end
-  describe powershell('Get-WinEvent -ListProvider') do
+  describe powershell('Get-WinEvent -ListProvider *') do
     its('stdout') { should include 'Microsoft-Windows-AppLocker' }
     its('stdout') { should include 'Microsoft-Windows-Sysmon' }
     its('stdout') { should include 'Microsoft-Windows-TaskScheduler' }
