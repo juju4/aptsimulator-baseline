@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_cred = attribute('do_aptsimulator_cred', default: false, description: 'Test APTSimulator cred detections')
 

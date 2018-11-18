@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_collection = attribute('do_aptsimulator_collection', default: false, description: 'Test APTSimulator collection detections')
 

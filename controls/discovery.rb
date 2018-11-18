@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_discovery = attribute('do_aptsimulator_discovery', default: false, description: 'Test APTSimulator discovery detections')
 

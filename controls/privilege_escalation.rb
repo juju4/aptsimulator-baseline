@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_privesc = attribute('do_aptsimulator_privesc', default: false, description: 'Test APTSimulator privilege escalation detections')
 

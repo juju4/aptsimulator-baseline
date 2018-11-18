@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_persistence = attribute('do_aptsimulator_persistence', default: false, description: 'Test APTSimulator persistence detections')
 

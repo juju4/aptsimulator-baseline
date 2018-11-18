@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_evasion = attribute('do_aptsimulator_evasion', default: true, description: 'Test APTSimulator defense evasion detections')
 

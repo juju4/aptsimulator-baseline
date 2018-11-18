@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_c2 = attribute('do_aptsimulator_c2', default: false, description: 'Test APTSimulator C2 detections')
 

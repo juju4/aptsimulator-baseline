@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 do_aptsimulator_lateral = attribute('do_aptsimulator_lateral', default: false, description: 'Test APTSimulator lateral movement detections')
 
