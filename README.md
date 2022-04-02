@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/juju4/aptsimulator-baseline.svg?branch=master)](https://travis-ci.org/juju4/aptsimulator-baseline)
-
 aptsimulator-baseline
 ================
 
