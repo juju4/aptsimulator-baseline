@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_persistence = attribute('do_aptsimulator_persistence', default: false, description: 'Test APTSimulator persistence detections')
+do_aptsimulator_persistence = input('do_aptsimulator_persistence', value: false, description: 'Test APTSimulator persistence detections')
 
 if do_aptsimulator_persistence
   title 'APTSimulator persistence'

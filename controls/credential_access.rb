@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_cred = attribute('do_aptsimulator_cred', default: false, description: 'Test APTSimulator cred detections')
+do_aptsimulator_cred = input('do_aptsimulator_cred', value: false, description: 'Test APTSimulator cred detections')
 
 if do_aptsimulator_cred
   title 'APTSimulator credential-access'

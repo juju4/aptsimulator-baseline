@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_c2 = attribute('do_aptsimulator_c2', default: false, description: 'Test APTSimulator C2 detections')
+do_aptsimulator_c2 = input('do_aptsimulator_c2', value: false, description: 'Test APTSimulator C2 detections')
 
 if do_aptsimulator_c2
   title 'APTSimulator command-and-control'

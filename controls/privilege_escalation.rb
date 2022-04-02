@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_privesc = attribute('do_aptsimulator_privesc', default: false, description: 'Test APTSimulator privilege escalation detections')
+do_aptsimulator_privesc = input('do_aptsimulator_privesc', value: false, description: 'Test APTSimulator privilege escalation detections')
 
 if do_aptsimulator_privesc
   title 'APTSimulator privilege-escalation'

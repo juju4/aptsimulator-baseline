@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_discovery = attribute('do_aptsimulator_discovery', default: false, description: 'Test APTSimulator discovery detections')
+do_aptsimulator_discovery = input('do_aptsimulator_discovery', value: false, description: 'Test APTSimulator discovery detections')
 
 if do_aptsimulator_discovery
   title 'APTSimulator discovery'

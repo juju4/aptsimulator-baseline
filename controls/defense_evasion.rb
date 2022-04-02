@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_evasion = attribute('do_aptsimulator_evasion', default: true, description: 'Test APTSimulator defense evasion detections')
+do_aptsimulator_evasion = input('do_aptsimulator_evasion', value: true, description: 'Test APTSimulator defense evasion detections')
 
 if do_aptsimulator_evasion
   title 'APTSimulator defense-evasion'

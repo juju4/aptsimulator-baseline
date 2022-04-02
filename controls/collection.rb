@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-do_aptsimulator_collection = attribute('do_aptsimulator_collection', default: false, description: 'Test APTSimulator collection detections')
+do_aptsimulator_collection = input('do_aptsimulator_collection', value: false, description: 'Test APTSimulator collection detections')
 
 if do_aptsimulator_collection
   title 'APTSimulator collection'
