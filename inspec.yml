@@ -4,6 +4,7 @@ name: aptsimulator-baseline
 title: APTsimulator Security Baseline
 maintainer: juju4
 copyright: juju4
+copyright_email: juju4@users.noreply.github.com
 license: BSD-2-Clause
 summary: Baseline for detections of aptsimulator
 version: 0.8
